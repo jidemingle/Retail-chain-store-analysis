@@ -65,6 +65,40 @@ ORDER BY month(transaction_date)
 -------------------------------------------------------------------------------------------------------------------------------------------
 
 
+**TOTAL ORDERS **
+
+SELECT count(transaction_id) FROM electronic_sales
+
+WHERE month(transaction_date) = 4 -- For the month of April
+
+![image](https://github.com/user-attachments/assets/80e39ad5-2af3-4a6a-b3ee-e6e421e503e5)
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+**MONTH ON MONTH (MOM)  GROWTH IN TOTAL ORDERS
+**
+SELECT month(transaction_date),
+
+COUNT(transaction_id) AS CURRENT_MONTH_ORDERS,
+
+ROUND((COUNT(transaction_id) - LAG(COUNT(transaction_id),1) OVER(ORDER BY month(transaction_date))) / LAG(COUNT(transaction_id),1) OVER(ORDER BY month(transaction_date)) *100 ,1) AS MOM_GROWTH_PERCENTAGE
+
+FROM electronic_sales
+
+WHERE month(transaction_date) IN (2,3)  -- Using the months of February and March
+
+GROUP BY month(transaction_date)
+
+ORDER BY month(transaction_date)
+
+![image](https://github.com/user-attachments/assets/a5f7a07e-03e8-466d-8d44-aed84fcc022c)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
 
 
 
