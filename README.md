@@ -127,15 +127,15 @@ WHERE    transaction_date = '2023-03-17'; -- Using 17th March 2023
  
 		WHEN dayofweek(transaction_date) IN (1,7) THEN "WEEKEND"
   
-          		ELSE "WEEKDAY"
+          	ELSE "WEEKDAY"
             
   	 END AS DAY_TYPE,
     
-  CONCAT(ROUND(SUM(unit_price * transaction_qty)/1000000,2),"M") AS total_sales
+ 		 CONCAT(ROUND(SUM(unit_price * transaction_qty)/1000000,2),"M") AS total_sales
   
- 	  FROM electronic_sales
+ 	FROM electronic_sales
     
- 	  WHERE month(transaction_date) = 2   -- Using the month of February
+        WHERE month(transaction_date) = 2   -- Using the month of February
     
    	GROUP BY DAY_TYPE
 
