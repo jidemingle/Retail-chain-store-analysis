@@ -1,6 +1,8 @@
 # Retail-chain-store-analysis
 KPIs
-1. TOTAL SALES 
+
+**TOTAL SALES**
+ 
 SELECT CONCAT(ROUND(sum(transaction_qty * unit_price)/1000000,2),"M") AS Total_sales
 
 FROM electronic_sales
