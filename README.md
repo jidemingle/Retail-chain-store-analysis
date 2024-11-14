@@ -139,7 +139,10 @@ WHERE    transaction_date = '2023-03-17'; -- Using 17th March 2023
     
    	GROUP BY DAY_TYPE
 
-    ![image](https://github.com/user-attachments/assets/e42ef05a-c553-43eb-b41c-1e35fd8a1a18)
+
+    
+
+![image](https://github.com/user-attachments/assets/e42ef05a-c553-43eb-b41c-1e35fd8a1a18)
 
     ---------------------------------------------------------------------------------------------------------------------
 
