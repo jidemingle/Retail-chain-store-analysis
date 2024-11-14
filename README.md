@@ -31,3 +31,5 @@ GROUP BY month(transaction_date)
 
 ORDER BY month(transaction_date)
 
+![image](https://github.com/user-attachments/assets/f960394b-1a45-4d01-a7d6-41134b6b3801)
+
