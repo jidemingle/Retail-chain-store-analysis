@@ -5,5 +5,11 @@ FROM electronic_sales
 WHERE  MONTH(transaction_date) = 3 -- using the month of march as Current Month
 
 
-![image](https://github.com/user-attachments/assets/899af37f-79d8-40ad-b687-e45562deca15)
+
+
+
+
+
+
+
 
