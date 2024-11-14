@@ -144,7 +144,51 @@ WHERE    transaction_date = '2023-03-17'; -- Using 17th March 2023
 
 ![image](https://github.com/user-attachments/assets/e42ef05a-c553-43eb-b41c-1e35fd8a1a18)
 
-    ---------------------------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+**TOTAL SALES BY STORE LOCATION**
+
+SELECT 
+
+	store_location,
+ 
+	SUM(unit_price * transaction_qty) as Total_Sales
+ 
+FROM electronic_sales
+
+WHERE MONTH(transaction_date) = 6     -- for the month of June
+
+GROUP BY store_location
+
+ORDER BY SUM(unit_price * transaction_qty) DESC
+
+
+![image](https://github.com/user-attachments/assets/a3beee53-f37e-402c-b9ba-fd02ee000dad)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+**SALES BY PRODUCT CATEGORY**
+
+SELECT 
+	product_category,
+ 
+	ROUND(SUM(unit_price * transaction_qty),1) as Total_Sales
+ 
+FROM electronic_sales
+
+WHERE MONTH(transaction_date) = 5 
+
+GROUP BY product_category
+
+ORDER BY SUM(unit_price * transaction_qty) DESC
+
+![image](https://github.com/user-attachments/assets/962f22f4-7b9c-442c-a7d2-d9a33a7c3958)
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 
 
