@@ -193,6 +193,57 @@ ORDER BY SUM(unit_price * transaction_qty) DESC
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
+**AVERAGE DAILY SALES**
+
+SELECT  ROUND(avg(total_sales),0) as avg_sales    -- This means find the average of the total sales of the transaction date from the table formed by the inner query
+
+FROM
+
+( 
+
+select transaction_date,
+
+round(sum(unit_price * transaction_qty),0) as total_sales
+
+from electronic_sales
+
+where month(transaction_date) = 5 -- for May
+
+group by transaction_date) as internal_query -- group by clause here is to make the internal query a table so that the average can be found using the count of dates in the month of May 
+
+
+![image](https://github.com/user-attachments/assets/4c032f55-7cbf-40de-9f7e-bec33d69b8fa)
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+**DAILY SALES FOR MONTH SELECTED**
+
+   SELECT 
+   
+   DAY(transaction_date) AS day_of_month,
+   
+   ROUND(SUM(unit_price * transaction_qty),1) AS total_sales
+   
+   FROM    electronic_sales
+   
+   WHERE     MONTH(transaction_date) = 4  -- Filter for April
+   
+   GROUP BY  DAY(transaction_date)
+    
+   ORDER BY DAY(transaction_date);
+
+   ![image](https://github.com/user-attachments/assets/fb01f331-0c32-4550-8ac4-712db603078b)
+   
+
+   ![image](https://github.com/user-attachments/assets/eaa0767b-a602-45bd-8a5f-7a08325a5e8d)
+
+   ------------------------------------------------------------------------------------------------------------------------
+
+
+   
+
+
+
 
 
 
