@@ -41,6 +41,8 @@ SELECT SUM(transaction_qty) FROM electronic_sales
 
 WHERE month(transaction_date) = 5   -- Using the month of May
 
+![image](https://github.com/user-attachments/assets/fb91bf75-7f75-4b99-a014-62a17aace98b)
+
 --------------------------------------------------------------------------------------------------------------------------------
 
 **MONTH ON MONTH (MOM) GROWTH IN QUANTITY SOLD**
@@ -57,6 +59,8 @@ WHERE month(transaction_date) IN (2,3)   --   Using the months of February and M
 GROUP BY month(transaction_date)
 
 ORDER BY month(transaction_date)
+
+![image](https://github.com/user-attachments/assets/2f6dac2b-3e88-4490-839a-c86de49f386b)
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
