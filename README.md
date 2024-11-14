@@ -1,5 +1,8 @@
 # Retail-chain-store-analysis
+
+-------------------------
 KPIs
+--------------------------
 
 **TOTAL SALES**
  
@@ -95,6 +98,8 @@ ORDER BY month(transaction_date)
 -----------------------------------------------------------------------------------------------------------------------------------------------
 
 **CHART REQUIREMENTS**
+
+--------------------------------------------------------------------------------------------------------------------
 
 **TOOLTIP REQUIREMENT TO DISPLAY TOTAL SALES, TOTAL ORDERS AND TOTAL QUANTITY FOR A SELECTED CALENDAR DATE**
 
