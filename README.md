@@ -239,6 +239,81 @@ group by transaction_date) as internal_query -- group by clause here is to make 
    ![image](https://github.com/user-attachments/assets/eaa0767b-a602-45bd-8a5f-7a08325a5e8d)
 
    ------------------------------------------------------------------------------------------------------------------------
+   
+
+  ** COMPARING DAILY SALES WITH AVERAGE SALES – IF GREATER THAN “ABOVE AVERAGE” and LESSER THAN “BELOW AVERAGE”**
+
+SELECT 
+
+    day_of_month,
+    
+    CASE 
+        WHEN total_sales > avg_sales THEN 'Above Average'
+	
+        WHEN total_sales < avg_sales THEN 'Below Average'
+	
+        ELSE 'Average'
+	
+    END AS sales_status,
+    
+    total_sales
+    
+FROM (
+
+    SELECT 
+    
+        DAY(transaction_date) AS day_of_month,
+	
+        SUM(unit_price * transaction_qty) AS total_sales,
+	
+        AVG(SUM(unit_price * transaction_qty)) OVER () AS avg_sales
+	
+    FROM 
+    
+        electronic_sales
+	
+    WHERE 
+    
+        MONTH(transaction_date) = 5  -- Filter for May
+	
+    GROUP BY 
+    
+        DAY(transaction_date)
+	
+) AS sales_data
+
+ORDER BY 
+
+    day_of_month;
+
+![image](https://github.com/user-attachments/assets/b58b5db7-1277-4a20-822b-1244026c6b67)
+
+
+![image](https://github.com/user-attachments/assets/13d788a7-8830-4245-aefc-c434e124ec65)
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
+**TOP 10 PRODUCT TYPES BY TOTAL SALES**
+
+ SELECT product_type,
+ 
+ sum(unit_price * transaction_qty) as Total_sales
+ 
+ FROM electronic_sales
+ 
+ where MONTH(transaction_date) = 4 -- For the month of April
+ 
+ group by product_type
+ 
+ ORDER BY Total_sales DESC
+ 
+ LIMIT 10
+ 
+
+ ![image](https://github.com/user-attachments/assets/da0f30c4-329e-45d6-a784-98918d35c6d9)
+
+ -----------------------------------------------------------------------------------------------------------------------------
 
 
    
