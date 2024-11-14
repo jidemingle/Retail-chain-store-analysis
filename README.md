@@ -241,7 +241,7 @@ group by transaction_date) as internal_query -- group by clause here is to make 
    ------------------------------------------------------------------------------------------------------------------------
    
 
-  ** COMPARING DAILY SALES WITH AVERAGE SALES – IF GREATER THAN “ABOVE AVERAGE” and LESSER THAN “BELOW AVERAGE”**
+ **COMPARING DAILY SALES WITH AVERAGE SALES – IF GREATER THAN “ABOVE AVERAGE” and LESSER THAN “BELOW AVERAGE”**
 
 SELECT 
 
