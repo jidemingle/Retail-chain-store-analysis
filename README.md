@@ -11,3 +11,23 @@ WHERE  MONTH(transaction_date) = 3 -- using the month of march as Current Month
 
 
 ![image](https://github.com/user-attachments/assets/ee1a4748-258c-44ee-8ff7-f877601c524b)
+
+
+--------------------------------------------------------------------------------------------------------------------------
+
+**MONTH ON MONTH (MOM) SALES DIFFERENCE AND GROWTH**
+
+SELECT month(transaction_date),
+
+SUM(transaction_qty * unit_price) AS CURRENT_MONTH_SALES,
+
+ROUND((SUM(transaction_qty * unit_price) - LAG(SUM(transaction_qty * unit_price),1) OVER(ORDER BY month(transaction_date))) / LAG(SUM(transaction_qty * unit_price),1) OVER(ORDER BY month(transaction_date)) *100 ,1) AS MOM_GROWTH_PERCENTAGE
+
+FROM electronic_sales
+
+WHERE month(transaction_date) IN (5,6)   -- using the months of May and June
+
+GROUP BY month(transaction_date)
+
+ORDER BY month(transaction_date)
+
