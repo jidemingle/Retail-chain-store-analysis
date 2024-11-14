@@ -177,9 +177,10 @@ ORDER BY SUM(unit_price * transaction_qty) DESC
 **SALES BY PRODUCT CATEGORY**
 
 SELECT 
-	product_category,
+
+product_category,
  
-	ROUND(SUM(unit_price * transaction_qty),1) as Total_Sales
+ROUND(SUM(unit_price * transaction_qty),1) as Total_Sales
  
 FROM electronic_sales
 
