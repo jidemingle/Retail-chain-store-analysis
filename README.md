@@ -94,6 +94,58 @@ ORDER BY month(transaction_date)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------
 
+**CHART REQUIREMENTS**
+
+**TOOLTIP REQUIREMENT TO DISPLAY TOTAL SALES, TOTAL ORDERS AND TOTAL QUANTITY FOR A SELECTED CALENDAR DATE**
+
+SELECT SUM(unit_price * transaction_qty) AS total_sales,
+
+SUM(transaction_qty) AS total_quantity_sold,
+
+COUNT(transaction_id) AS total_orders
+
+FROM  electronic_sales
+
+WHERE    transaction_date = '2023-03-17'; -- Using 17th March 2023
+
+![image](https://github.com/user-attachments/assets/a6a109b3-6fa2-4072-971a-02201aefe6f1)
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+**SALES ANALYSIS BY WEEKEND AND WEEKDAYS**
+
+-- SUNDAY & SATURDAY = WEEKEND
+
+-- MONDAY TO FRIDAY = WEEKDAY
+
+ -- DAY OF WEEK (SUNDAY =1, MONDAY =2 …..  SATURDAY =7) 
+ 
+ SELECT 
+ 
+	CASE
+ 
+		WHEN dayofweek(transaction_date) IN (1,7) THEN "WEEKEND"
+  
+          		ELSE "WEEKDAY"
+            
+  	 END AS DAY_TYPE,
+    
+  CONCAT(ROUND(SUM(unit_price * transaction_qty)/1000000,2),"M") AS total_sales
+  
+ 	  FROM electronic_sales
+    
+ 	  WHERE month(transaction_date) = 2   -- Using the month of February
+    
+   	GROUP BY DAY_TYPE
+
+    ![image](https://github.com/user-attachments/assets/e42ef05a-c553-43eb-b41c-1e35fd8a1a18)
+
+    ---------------------------------------------------------------------------------------------------------------------
+
+
+
+
 
 
 
