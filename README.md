@@ -64,8 +64,7 @@ ORDER BY month(transaction_date)
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 
-
-**TOTAL ORDERS **
+**TOTAL ORDERS**
 
 SELECT count(transaction_id) FROM electronic_sales
 
@@ -75,8 +74,8 @@ WHERE month(transaction_date) = 4 -- For the month of April
 
 --------------------------------------------------------------------------------------------------------------------------------
 
-**MONTH ON MONTH (MOM)  GROWTH IN TOTAL ORDERS
-**
+**MONTH ON MONTH (MOM)  GROWTH IN TOTAL ORDERS**
+
 SELECT month(transaction_date),
 
 COUNT(transaction_id) AS CURRENT_MONTH_ORDERS,
