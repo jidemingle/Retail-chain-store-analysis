@@ -316,7 +316,52 @@ ORDER BY
  -----------------------------------------------------------------------------------------------------------------------------
 
 
-   
+**TOTAL SALES BY DAY BY HOUR**
+
+SELECT 
+
+ROUND(SUM(unit_price * transaction_qty)) AS Total_Sales,
+    
+SUM(transaction_qty) AS Total_Quantity,
+
+COUNT(*) AS Total_Orders
+
+FROM
+
+electronic_sales
+
+WHERE 
+
+DAYOFWEEK(transaction_date) = 4 -- Filter for wednesday (1 is Sunday, 2 is Monday, ..., 7 is Saturday)
+    
+AND HOUR(transaction_time) = 10 -- Filter for hour number 5
+
+    
+AND MONTH(transaction_date) = 5; -- Filter for May (month number 5)
+
+
+![image](https://github.com/user-attachments/assets/ff19bcb1-fe8c-4743-a6ff-0472d0154ad5)
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+**TOTAL MONTHLY SALES FOR DAYS OF THE WEEK**
+
+SELECT dayname(transaction_date) AS day_name, 
+
+ROUND(SUM(unit_price * transaction_qty)) AS total_sales 
+
+FROM electronic_sales
+
+WHERE MONTH(transaction_date) = 5 
+
+GROUP BY day_name
+
+
+![image](https://github.com/user-attachments/assets/d9c7d8d0-58d3-47cc-a425-79d1316d08de)
+
+---------------------------------------------------------------------------------------------------------------------------
+
 
 
 
